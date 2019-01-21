@@ -4,18 +4,18 @@ in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Matthew White.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
     """ Calls the other functions to test them. """
-    run_test_triangle_right_justified()
-    run_test_triangle_upside_down()
-    run_test_vee()
+    #run_test_triangle_right_justified()
+    #run_test_triangle_upside_down()
+    #run_test_vee()
     run_test_numbers_constant_forward()
-    run_test_numbers_constant_backwards()
-    run_test_numbers_increasing_forward()
+    #run_test_numbers_constant_backwards()
+    #run_test_numbers_increasing_forward()
 
 
 def run_test_triangle_right_justified():
@@ -56,7 +56,7 @@ def triangle_right_justified(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: Do the following problem FIRST, then convert x's to spaces:
@@ -74,6 +74,14 @@ def triangle_right_justified(r):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
+
+    for k in range(r):
+        for j in range(r - 1,k,-1):
+            print(' ', end='')
+        for h in range(k+1):
+            print(h + 1,end='')
+        print()
+
 
 
 def run_test_triangle_upside_down():
@@ -110,7 +118,7 @@ def triangle_upside_down(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -119,6 +127,13 @@ def triangle_upside_down(r):
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
 
+    for k in range(r):
+        for h in range(k):
+            print(' ',end='')
+        for j in range(1 , r - k + 1,):
+            print(j, end='')
+
+        print()
 
 def run_test_vee():
     """ Tests the    vee    function. """
@@ -170,6 +185,16 @@ def vee(r):
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
 
+    for k in range(r):
+        for h in range(k):
+            print(' ',end='')
+        for j in range(1,r - k + 1):
+            print(j,end='')
+        print('-',end='')
+        for t in range(r - k,0,-1):
+            print(t,end='')
+        print()
+
 
 def run_test_numbers_constant_forward():
     """ Tests the    numbers_constant_forward    function. """
@@ -217,7 +242,7 @@ def numbers_constant_forward(r, maxnum, n):
     Preconditions:  r, maxnum and n are positive integers.
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: What loop structure do you need for this problem?
@@ -227,6 +252,13 @@ def numbers_constant_forward(r, maxnum, n):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
+
+    for k in range(r):
+        for j in range(maxnum):
+            for h in range(n):
+                print(j + 1,end='')
+            print(' ',end='')
+        print()
 
 
 def run_test_numbers_constant_backwards():

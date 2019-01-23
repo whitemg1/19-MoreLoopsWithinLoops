@@ -55,20 +55,30 @@ def draw_upside_down_wall(rectangle, n, window):
     #     Some tests are already written for you (above).
     # -------------------------------------------------------------------------
 
-    side_length_x = rectangle.get_width()
-    side_length_y = rectangle.get_height()
+    side_x = rectangle.get_width()
+    side_y = rectangle.get_height()
 
-    #first row
-    rectangle.attach_to(window)
+    orig_top_left = rectangle.get_upper_left_corner()
+    orig_bot_right = rectangle.get_lower_right_corner()
 
-    for k in range(n + 1):
-        y_low = rectangle.get_upper_left_corner() + k * side_length_y
-        y_high = y_low + side_length_y * (k + 1)
-        for j in range(k + 1):
-            new_rectangle = rg.Rectangle(rg.Point(rectangle.get_upper_right_corner.x + j * (side_length_x/2), y_high),rg.Point())
 
+    for k in range(n):
+        first_rect = rg.Rectangle(rg.Point(orig_top_left.x - (k * 0.5 * side_x),orig_top_left.y - (k * side_y)),
+                                  rg.Point(orig_bot_right.x - (k * 0.5 * side_x),orig_bot_right.y - (k * side_y)))
+        first_rect.attach_to(window)
+        first_top_left = first_rect.get_upper_left_corner()
+        first_bot_right = first_rect.get_lower_right_corner()
+
+        for j in range(k):
+            row_of_rect = rg.Rectangle(rg.Point(first_top_left.x + (j + 1) * side_x, first_top_left.y),
+                                       rg.Point(first_bot_right.x + (j + 1) * side_x,first_top_left.y + side_y))
+            row_of_rect.attach_to(window)
+
+    window.render();
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
 main()
+
+
